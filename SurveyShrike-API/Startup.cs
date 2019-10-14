@@ -1,5 +1,6 @@
 using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,9 +31,31 @@ namespace SurveyShrike_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+
             IServiceProvider serviceProvider = services.BuildServiceProvider();
             IWebHostEnvironment env = serviceProvider.GetService<IWebHostEnvironment>();
             services.AddControllers();
+            services.AddAuthorization();
+        
+            services.AddAuthentication("Bearer")
+              .AddJwtBearer("Bearer", options =>
+              {
+                  options.Authority = Configuration["Authority"] ?? "http://localhost:5000";
+                  options.RequireHttpsMetadata = false;
+                  options.Audience = "api";
+              });
+
+            services.AddCors(setup =>
+            {
+                setup.AddDefaultPolicy(policy =>
+                {
+                    policy
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin();
+                });
+            });
 
             services.AddSwaggerGen(c =>
             {
