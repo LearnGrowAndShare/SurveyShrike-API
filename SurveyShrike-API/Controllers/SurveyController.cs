@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -17,6 +18,7 @@ using SurveyShrike_API.Controllers;
 namespace Surveyhrike_API.Controllers
 {
     [Authorize]
+    [DisableCors]
     public class SurveyController : BaseController
     {
         [HttpGet]
@@ -35,6 +37,7 @@ namespace Surveyhrike_API.Controllers
             return Ok(await Mediator.Send(new SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetailsWithResponses.GetSurveyDetailQuery { Id = id }));
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

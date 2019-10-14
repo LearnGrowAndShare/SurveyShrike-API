@@ -30,6 +30,7 @@ namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetails
                     Title = survey.Title,
                     Forms = survey.SurveyForms != null ? survey.SurveyForms.Select(x => 
                     new FormFields() {
+                        Id = x.Id,
                         FormConfiguration = x.FormConfiguration, 
                         FormTypes = x.FormTypes, 
                         Title = x.Title 
