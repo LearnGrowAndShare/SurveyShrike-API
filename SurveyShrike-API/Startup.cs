@@ -1,12 +1,18 @@
 using AutoMapper;
+using IdentityModel;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using SurveyShrike_API.Application.Infrastructure;
 using SurveyShrike_API.Application.Infrastructure.Automapper;
@@ -16,6 +22,8 @@ using SurveyShrike_API.Persistence;
 
 using System;
 using System.Reflection;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace SurveyShrike_API
 {
@@ -35,27 +43,27 @@ namespace SurveyShrike_API
 
             IServiceProvider serviceProvider = services.BuildServiceProvider();
             IWebHostEnvironment env = serviceProvider.GetService<IWebHostEnvironment>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllers();
+            services.AddCors();
             services.AddAuthorization();
-        
+            services.AddTransient<IGetUserInformation, GetUserInformation>();
             services.AddAuthentication("Bearer")
               .AddJwtBearer("Bearer", options =>
               {
                   options.Authority = Configuration["Authority"] ?? "http://localhost:5000";
                   options.RequireHttpsMetadata = false;
                   options.Audience = "api";
+                  
+                  options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                  {
+                      NameClaimType = JwtClaimTypes.Name
+                  };
               });
 
-            services.AddCors(setup =>
-            {
-                setup.AddDefaultPolicy(policy =>
-                {
-                    policy
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowAnyOrigin();
-                });
-            });
+
+          
 
             services.AddSwaggerGen(c =>
             {
@@ -82,11 +90,21 @@ namespace SurveyShrike_API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(policy =>
+            {
+                policy.WithOrigins(
+                    "http://localhost:4200");
+
+                policy.AllowAnyHeader();
+                policy.AllowAnyMethod();
+                policy.WithExposedHeaders("WWW-Authenticate");
+            });
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -99,10 +117,12 @@ namespace SurveyShrike_API
 
             });
 
-            app.UseHttpsRedirection();
-
+           
             app.UseRouting();
 
+ 
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

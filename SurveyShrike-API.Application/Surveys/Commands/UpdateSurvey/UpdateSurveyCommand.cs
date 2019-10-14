@@ -27,18 +27,25 @@ namespace SurveyShrike_API.Application.Surveys.Commands.UpdateSurvey
         public class Handler : IRequestHandler<UpdateSurveyCommand, Unit>
         {
             private readonly IApplicationDBContext _context;
-
-            public Handler(IApplicationDBContext context)
+            private readonly IGetUserInformation _getUserInformation;
+            public Handler(IApplicationDBContext context, IGetUserInformation getUserInformation)
             {
                 _context = context;
+                _getUserInformation = getUserInformation;
             }
 
             public async Task<Unit> Handle(UpdateSurveyCommand request, CancellationToken cancellationToken)
             {
+                var email = await _getUserInformation.GetUser();
                 var entity = await _context.Surveys
                     .SingleOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
 
                 if (entity == null)
+                {
+                    throw new NotFoundException(nameof(Survey), request.Id);
+                }
+
+                if (entity.CreatedBy != email || entity.isDeleted)
                 {
                     throw new NotFoundException(nameof(Survey), request.Id);
                 }
@@ -61,7 +68,9 @@ namespace SurveyShrike_API.Application.Surveys.Commands.UpdateSurvey
 
                     });
                 }
-            
+
+                entity.ModifiedBy = email;
+                entity.ModifiedOn = DateTime.UtcNow;
                 await _context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;

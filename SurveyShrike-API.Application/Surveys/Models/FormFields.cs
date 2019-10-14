@@ -12,10 +12,10 @@ namespace SurveyShrike_API.Application.Surveys.Commands.CreateSurvey
 {
     public class FormFields
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public SurveyFieldType FormTypes { get; set; }
         public string FormConfiguration { get; set; }
 
-        public string Response { get; set; }
     }
 }

@@ -23,11 +23,12 @@ namespace SurveyShrike_API.Application.Surveys.Commands.CreateSurveyResponse
         {
             private readonly IApplicationDBContext _context;
             private readonly IMediator _mediator;
-
+            
             public Handler(IApplicationDBContext context, IMediator mediator)
             {
                 _context = context;
                 _mediator = mediator;
+   
             }
 
             public async Task<Unit> Handle(CreateSurveyCommand request, CancellationToken cancellationToken)

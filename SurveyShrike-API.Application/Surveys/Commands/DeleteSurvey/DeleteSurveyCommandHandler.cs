@@ -15,14 +15,18 @@ namespace SurveyShrike_API.Application.Surveys.Commands.DeleteSurvey
      public class DeleteSurveyCommandHandler : IRequestHandler<DeleteSurveyCommand>
     {
         private readonly IApplicationDBContext _context;
+        private readonly IGetUserInformation _getUserInformation;
 
-        public DeleteSurveyCommandHandler(IApplicationDBContext context)
+        public DeleteSurveyCommandHandler(IApplicationDBContext context, IGetUserInformation getUserInformation)
         {
             _context = context;
+            _getUserInformation = getUserInformation;
         }
 
         public async Task<Unit> Handle(DeleteSurveyCommand request, CancellationToken cancellationToken)
         {
+            var email = await _getUserInformation.GetUser();
+
             var entity = await _context.Surveys
                 .FindAsync(request.Id);
 
@@ -31,9 +35,15 @@ namespace SurveyShrike_API.Application.Surveys.Commands.DeleteSurvey
                 throw new NotFoundException(nameof(Survey), request.Id);
             }
 
+            if (entity.CreatedBy != email || entity.isDeleted)
+            {
+                throw new NotFoundException(nameof(Survey), request.Id);
+            }
+
 
             entity.isDeleted = true;
-           
+            entity.ModifiedBy = email;
+            entity.ModifiedOn = System.DateTime.UtcNow;
 
             await _context.SaveChangesAsync(cancellationToken);
 

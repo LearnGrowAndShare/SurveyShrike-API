@@ -23,21 +23,23 @@ namespace SurveyShrike_API.Application.Surveys.Commands.CreateSurvey
         {
             private readonly IApplicationDBContext _context;
             private readonly IMediator _mediator;
-
-            public Handler(IApplicationDBContext context, IMediator mediator)
+            private readonly IGetUserInformation _getUserInformation;
+            public Handler(IApplicationDBContext context, IMediator mediator, IGetUserInformation getUserInformation)
             {
                 _context = context;
                 _mediator = mediator;
+                _getUserInformation = getUserInformation;
             }
 
             public async Task<Unit> Handle(CreateSurveyCommand request, CancellationToken cancellationToken)
             {
+                var email = await _getUserInformation.GetUser();
                 var entity = new SurveyEntity.Survey
                 {
                     Title = request.Title,
-                    CreatedBy = "Admin",
+                    CreatedBy = email,
                     CreatedOn = DateTime.UtcNow,
-                    ModifiedBy = "Admin",
+                    ModifiedBy = email,
                     ModifiedOn = DateTime.UtcNow,
                     isDeleted = false
                 };

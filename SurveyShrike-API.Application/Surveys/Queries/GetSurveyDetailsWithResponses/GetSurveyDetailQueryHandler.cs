@@ -16,14 +16,17 @@ namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetailsWithRespo
     public class GetSurveyDetailQueryHandler : IRequestHandler<GetSurveyDetailQuery, SurveyDetailModel>
     {
         private readonly IApplicationDBContext _context;
-
-        public GetSurveyDetailQueryHandler(IApplicationDBContext context)
+        private readonly IGetUserInformation _getUserInformation;
+        public GetSurveyDetailQueryHandler(IApplicationDBContext context, IGetUserInformation getUserInformation)
         {
             _context = context;
+            _getUserInformation = getUserInformation;
         }
 
         public async Task<SurveyDetailModel> Handle(GetSurveyDetailQuery request, CancellationToken cancellationToken)
         {
+            var email = await _getUserInformation.GetUser();
+
             var entity = await _context.Surveys
                 .FindAsync(request.Id);
 
@@ -32,7 +35,14 @@ namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetailsWithRespo
                 throw new NotFoundException(nameof(Surveys), request.Id);
             }
 
-            return SurveyDetailModel.Create(entity);
+            if (entity.CreatedBy == email && !entity.isDeleted)
+            {
+                return SurveyDetailModel.Create(entity);
+            }
+            else {
+                throw new NotFoundException(nameof(Surveys), request.Id);
+            }
+            
         }
     }
 }
