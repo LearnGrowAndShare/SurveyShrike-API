@@ -1,4 +1,5 @@
 
+
 ## # **[SurveyShrike-Api]([https://github.com/dreamerNcoder/SurveyShrike-AP](https://github.com/dreamerNcoder/SurveyShrike-AP))**
 This is one of the main survey data provider  module for *SurveyShrike* application. This service only deals with the survey management part and has separate database.
 
@@ -55,3 +56,12 @@ Follow these steps to get your development environment set up:
  -  .NET Core 3
 -   ASP.NET Core 3
 -   Entity Framework Core 3
+## Project structure
+
+![enter image description here](https://raw.githubusercontent.com/dreamerNcoder/SurveyShrike-API/de/image.png)
+
+-   SurveyShrike-API- Actual identity server API's.
+-   SurveyShrike-API.Application - It contains business-logic and types
+-   SurveyShrike-API.Persistence - contains all external concerns like database & migrations
+-   SurveyShrike-API.Domain- contains enterprise-wide logic and types
+- -SurveyShrike-API.Common- common entities accross the api
