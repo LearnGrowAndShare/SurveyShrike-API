@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "SurveyShrike-API.Domain/1.0.0": {
+        "dependencies": {
+          "SurveyShrike-API.Common": "1.0.0"
+        },
+        "runtime": {
+          "SurveyShrike-API.Domain.dll": {}
+        }
+      },
+      "SurveyShrike-API.Common/1.0.0": {
+        "runtime": {
+          "SurveyShrike-API.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SurveyShrike-API.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SurveyShrike-API.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

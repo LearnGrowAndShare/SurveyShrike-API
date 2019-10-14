@@ -1,0 +1,8 @@
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Common\bin\Debug\netcoreapp3.0\SurveyShrike-API.Common.deps.json
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Common\bin\Debug\netcoreapp3.0\SurveyShrike-API.Common.dll
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Common\bin\Debug\netcoreapp3.0\SurveyShrike-API.Common.pdb
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Common\obj\Debug\netcoreapp3.0\SurveyShrike-API.Common.csprojAssemblyReference.cache
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Common\obj\Debug\netcoreapp3.0\SurveyShrike-API.Common.AssemblyInfoInputs.cache
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Common\obj\Debug\netcoreapp3.0\SurveyShrike-API.Common.AssemblyInfo.cs
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Common\obj\Debug\netcoreapp3.0\SurveyShrike-API.Common.dll
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Common\obj\Debug\netcoreapp3.0\SurveyShrike-API.Common.pdb

@@ -1,0 +1,17 @@
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.deps.json
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.dll
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\obj\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.csprojAssemblyReference.cache
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\obj\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.AssemblyInfoInputs.cache
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\obj\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.AssemblyInfo.cs
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Application.dll
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Common.dll
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Domain.dll
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Application.pdb
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Common.pdb
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Domain.pdb
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\obj\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.csproj.CopyComplete
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.runtimeconfig.json
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.runtimeconfig.dev.json
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\bin\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.pdb
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\obj\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.dll
+E:\office_assignemnt\SurveyShrike\SurveyShrike-API\SurveyShrike-API.Persistence\obj\Debug\netcoreapp3.0\SurveyShrike-API.Persistence.pdb
