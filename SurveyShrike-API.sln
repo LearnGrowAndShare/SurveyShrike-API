@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyShrike-API", "SurveyShrike-API.csproj", "{62D4BAF7-7781-4772-9685-B784FE685F16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyShrike-API", ".\SurveyShrike-API\SurveyShrike-API.csproj", "{62D4BAF7-7781-4772-9685-B784FE685F16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyShrike-API.Application", "..\SurveyShrike-API.Application\SurveyShrike-API.Application.csproj", "{01942979-CDA3-4E01-857A-893D8DC93831}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyShrike-API.Application", ".\SurveyShrike-API.Application\SurveyShrike-API.Application.csproj", "{01942979-CDA3-4E01-857A-893D8DC93831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyShrike-API.Domain", "..\SurveyShrike-API.Domain\SurveyShrike-API.Domain.csproj", "{EBEFEB34-39BC-494E-A503-1BF6F56BD2A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyShrike-API.Domain", ".\SurveyShrike-API.Domain\SurveyShrike-API.Domain.csproj", "{EBEFEB34-39BC-494E-A503-1BF6F56BD2A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyShrike-API.Persistence", "..\SurveyShrike-API.Persistence\SurveyShrike-API.Persistence.csproj", "{1B4CA330-8FF0-44B4-829E-76457801A92B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyShrike-API.Persistence", ".\SurveyShrike-API.Persistence\SurveyShrike-API.Persistence.csproj", "{1B4CA330-8FF0-44B4-829E-76457801A92B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyShrike-API.Common", "..\SurveyShrike-API.Common\SurveyShrike-API.Common.csproj", "{737D751C-ED0B-4F48-AFAB-623FCE100B2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyShrike-API.Common", ".\SurveyShrike-API.Common\SurveyShrike-API.Common.csproj", "{737D751C-ED0B-4F48-AFAB-623FCE100B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

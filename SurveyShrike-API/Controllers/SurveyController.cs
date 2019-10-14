@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,6 +16,7 @@ using SurveyShrike_API.Controllers;
 
 namespace Surveyhrike_API.Controllers
 {
+    [Authorize]
     public class SurveyController : BaseController
     {
         [HttpGet]
