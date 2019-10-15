@@ -1,7 +1,9 @@
 
 
 ## # **[SurveyShrike-Api]([https://github.com/dreamerNcoder/SurveyShrike-AP](https://github.com/dreamerNcoder/SurveyShrike-AP))**
-This is one of the main survey data provider  module for *SurveyShrike* application. This service only deals with the survey management part and has separate database.
+This is one of the main survey data provider  module for *SurveyShrike* application. This service only deals with the survey management part and has separate database. 
+
+[![Build Status](https://travis-ci.org/dreamerNcoder/SurveyShrike-API.svg?branch=master)](https://travis-ci.org/dreamerNcoder/SurveyShrike-API)
 
 
 ## Readings  
