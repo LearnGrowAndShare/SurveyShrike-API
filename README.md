@@ -47,11 +47,11 @@ Follow these steps to get your development environment set up:
 4.  Next, within the  `SurveyShrike-API` (root)  directory, launch the API server by running:
     
     ```
-   dotnet run --project .\SurveyShrike-API\SurveyShrike-API.csproj
+    dotnet run --project .\SurveyShrike-API\SurveyShrike-API.csproj
     
     ```
     
-5.  Once the server has started, within the  navigate to ["http://localhost:61365/swagger](http://localhost:61365/swagger),
+5.  Once the server has started, within the  navigate to ["http://localhost:8080/swagger](http://localhost:8080/swagger),
  If it does not give error, We have successfully started API server.
     
  ## Technologies
