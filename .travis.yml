@@ -1,10 +1,10 @@
 language: csharp
+mono: none
 solution: SurveyShrike-API.sln
 dotnet: 3.0.100
-install:
-  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+
 script:
  - dotnet restore
  - dotnet build
- - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
+ - dotnet test 
 
