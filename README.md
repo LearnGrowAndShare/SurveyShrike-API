@@ -44,10 +44,10 @@ Follow these steps to get your development environment set up:
     
     ```
     
-4.  Next, within the  `SurveyShrike-API` (root)  directory, launch the identity server by running:
+4.  Next, within the  `SurveyShrike-API` (root)  directory, launch the API server by running:
     
     ```
-    dotnet run bin\Debug\netcoreapp3.0\SurveyShrike-API.dll
+   dotnet run --project .\SurveyShrike-API\SurveyShrike-API.csproj
     
     ```
     
