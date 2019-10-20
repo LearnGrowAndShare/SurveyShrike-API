@@ -6,6 +6,5 @@ dotnet: 3.0.100
 script:
  - dotnet restore
  - dotnet build
- - dotnet test ./tests/Application.UnitTests/Application.UnitTests.csproj
- - dotnet test ./tests/Persistence.UnitTests/Persistence.UnitTests.csproj
+ - dotnet test 
 
