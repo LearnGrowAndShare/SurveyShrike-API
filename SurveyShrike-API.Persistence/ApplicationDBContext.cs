@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SurveyShrike_API.Application.Interfaces;
 using SurveyShrike_API.Domain.Entities;
+using SurveyShrike_API.Domain.Entities.Interfaces.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Threading;
+using System.Threading.Tasks;
 
 /// <summary>
 /// @author Ankit
@@ -14,9 +16,9 @@ namespace SurveyShrike_API.Persistence
 {
     public class ApplicationDBContext: DbContext, IApplicationDBContext
     {
-       DbSet<Survey> IApplicationDBContext.Surveys { get ; set ; }
-        DbSet<SurveyFormField> IApplicationDBContext.SurveyFormFields { get ; set ; }
-        DbSet<SurveyResponse> IApplicationDBContext.SurveyResponses { get ; set ; }
+        public DbSet<Survey> Surveys { get ; set ; }
+        public DbSet<SurveyFormField> SurveyFormFields { get ; set ; }
+        public DbSet<SurveyResponse> SurveyResponses { get ; set ; }
 
         /// <summary>
         /// 
@@ -27,6 +29,28 @@ namespace SurveyShrike_API.Persistence
         {
 
         }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            foreach (var entry in ChangeTracker.Entries<AuditedEntity<Guid>>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                       
+                        entry.Entity.CreatedOn = DateTime.Now;
+                        entry.Entity.ModifiedOn = DateTime.Now;
+                        break;
+                    case EntityState.Modified:
+
+                        entry.Entity.ModifiedOn = DateTime.Now;
+                        break;
+                }
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
 
         /// <summary>
         /// 

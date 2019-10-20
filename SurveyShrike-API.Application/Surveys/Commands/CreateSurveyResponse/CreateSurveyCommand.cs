@@ -34,22 +34,24 @@ namespace SurveyShrike_API.Application.Surveys.Commands.CreateSurveyResponse
             public async Task<Unit> Handle(CreateSurveyCommand request, CancellationToken cancellationToken)
             {
                 var entity = new List<SurveyEntity.SurveyResponse>();
-                
-                request.FormFields.ToList().ForEach(async x =>
+
+                if (request.FormFields != null)
                 {
-                    var surveyFormField = await _context.SurveyFormFields.FindAsync(x.FormId);
-                    if (surveyFormField != null)
+                    request.FormFields.ToList().ForEach(async x =>
                     {
-                        entity.Add(new SurveyEntity.SurveyResponse
+                        var surveyFormField = await _context.SurveyFormFields.FindAsync(x.FormId);
+                        if (surveyFormField != null)
                         {
-                            Response = x.Response,
-                            ReportedIP = request.IP,
-                            ReportedAt = DateTime.UtcNow,
-                            SurveyFormField = surveyFormField
-                        });
-                     }
-                });
-             
+                            entity.Add(new SurveyEntity.SurveyResponse
+                            {
+                                Response = x.Response,
+                                ReportedIP = request.IP,
+                                ReportedAt = DateTime.UtcNow,
+                                SurveyFormField = surveyFormField
+                            });
+                        }
+                    });
+                }
 
                 _context.SurveyResponses.AddRange(entity);
 

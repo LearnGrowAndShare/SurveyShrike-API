@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SurveyShrike_API.Application.Surveys.Commands.CreateSurveyResponse
 {
-    internal class SurveyCreated : INotification
+    public class SurveyCreated : INotification
     {
 
         public class SurveyCreatedHandler : INotificationHandler<SurveyCreated>
