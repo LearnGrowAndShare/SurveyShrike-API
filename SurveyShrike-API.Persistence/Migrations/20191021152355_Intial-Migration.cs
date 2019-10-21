@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SurveyShrike_API.Persistence.Migrations
 {
-    public partial class initalmigration : Migration
+    public partial class IntialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.Surveys",
+                name: "Surveys",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -21,11 +21,11 @@ namespace SurveyShrike_API.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.Surveys", x => x.Id);
+                    table.PrimaryKey("PK_Surveys", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields",
+                name: "SurveyFormFields",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -37,17 +37,17 @@ namespace SurveyShrike_API.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields", x => x.Id);
+                    table.PrimaryKey("PK_SurveyFormFields", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.Surveys_SurveyId",
+                        name: "FK_SurveyFormFields_Surveys_SurveyId",
                         column: x => x.SurveyId,
-                        principalTable: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.Surveys",
+                        principalTable: "Surveys",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyResponses",
+                name: "SurveyResponses",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -59,36 +59,36 @@ namespace SurveyShrike_API.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyResponses", x => x.Id);
+                    table.PrimaryKey("PK_SurveyResponses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyResponses_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields_SurveyFormFieldId",
+                        name: "FK_SurveyResponses_SurveyFormFields_SurveyFormFieldId",
                         column: x => x.SurveyFormFieldId,
-                        principalTable: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields",
+                        principalTable: "SurveyFormFields",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields_SurveyId",
-                table: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields",
+                name: "IX_SurveyFormFields_SurveyId",
+                table: "SurveyFormFields",
                 column: "SurveyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyResponses_SurveyFormFieldId",
-                table: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyResponses",
+                name: "IX_SurveyResponses_SurveyFormFieldId",
+                table: "SurveyResponses",
                 column: "SurveyFormFieldId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyResponses");
+                name: "SurveyResponses");
 
             migrationBuilder.DropTable(
-                name: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields");
+                name: "SurveyFormFields");
 
             migrationBuilder.DropTable(
-                name: "SurveyShrike_API.Application.Interfaces.IApplicationDBContext.Surveys");
+                name: "Surveys");
         }
     }
 }

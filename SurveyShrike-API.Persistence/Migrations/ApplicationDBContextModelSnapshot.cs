@@ -49,7 +49,7 @@ namespace SurveyShrike_API.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SurveyShrike_API.Application.Interfaces.IApplicationDBContext.Surveys");
+                    b.ToTable("Surveys");
                 });
 
             modelBuilder.Entity("SurveyShrike_API.Domain.Entities.SurveyFormField", b =>
@@ -78,7 +78,7 @@ namespace SurveyShrike_API.Persistence.Migrations
 
                     b.HasIndex("SurveyId");
 
-                    b.ToTable("SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields");
+                    b.ToTable("SurveyFormFields");
                 });
 
             modelBuilder.Entity("SurveyShrike_API.Domain.Entities.SurveyResponse", b =>
@@ -106,7 +106,7 @@ namespace SurveyShrike_API.Persistence.Migrations
 
                     b.HasIndex("SurveyFormFieldId");
 
-                    b.ToTable("SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyResponses");
+                    b.ToTable("SurveyResponses");
                 });
 
             modelBuilder.Entity("SurveyShrike_API.Domain.Entities.SurveyFormField", b =>

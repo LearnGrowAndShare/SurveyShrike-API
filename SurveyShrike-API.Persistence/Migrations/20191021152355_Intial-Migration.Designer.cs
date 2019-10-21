@@ -9,8 +9,8 @@ using SurveyShrike_API.Persistence;
 namespace SurveyShrike_API.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20191014102226_inital-migration")]
-    partial class initalmigration
+    [Migration("20191021152355_Intial-Migration")]
+    partial class IntialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace SurveyShrike_API.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SurveyShrike_API.Application.Interfaces.IApplicationDBContext.Surveys");
+                    b.ToTable("Surveys");
                 });
 
             modelBuilder.Entity("SurveyShrike_API.Domain.Entities.SurveyFormField", b =>
@@ -80,7 +80,7 @@ namespace SurveyShrike_API.Persistence.Migrations
 
                     b.HasIndex("SurveyId");
 
-                    b.ToTable("SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyFormFields");
+                    b.ToTable("SurveyFormFields");
                 });
 
             modelBuilder.Entity("SurveyShrike_API.Domain.Entities.SurveyResponse", b =>
@@ -108,7 +108,7 @@ namespace SurveyShrike_API.Persistence.Migrations
 
                     b.HasIndex("SurveyFormFieldId");
 
-                    b.ToTable("SurveyShrike_API.Application.Interfaces.IApplicationDBContext.SurveyResponses");
+                    b.ToTable("SurveyResponses");
                 });
 
             modelBuilder.Entity("SurveyShrike_API.Domain.Entities.SurveyFormField", b =>
