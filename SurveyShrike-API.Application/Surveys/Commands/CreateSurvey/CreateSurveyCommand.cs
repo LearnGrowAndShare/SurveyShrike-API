@@ -13,12 +13,24 @@ using SurveyEntity = SurveyShrike_API.Domain.Entities;
 /// </summary>
 namespace SurveyShrike_API.Application.Surveys.Commands.CreateSurvey
 {
-
+    /// <summary>
+    /// create survey command to create a new survey
+    /// </summary>
     public class CreateSurveyCommand : IRequest
     {
+        /// <summary>
+        /// Input param for the title
+        /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        /// Form configuration for the survey
+        /// </summary>
         public ICollection<FormFields> FormFields { get; set; }
 
+        /// <summary>
+        /// Handler contains Handle, used by mediaR to perform the operation and notify the event subscriber.
+        /// </summary>
         public class Handler : IRequestHandler<CreateSurveyCommand, Unit>
         {
             private readonly IApplicationDBContext _context;
@@ -31,6 +43,12 @@ namespace SurveyShrike_API.Application.Surveys.Commands.CreateSurvey
                 _getUserInformation = getUserInformation;
             }
 
+            /// <summary>
+            /// Handle is called by mediaR to perform the operation and notify the event subscriber.
+            /// </summary>
+            /// <param name="request">request object</param>
+            /// <param name="cancellationToken">cancellation token</param>
+            /// <returns>Unit</returns>
             public async Task<Unit> Handle(CreateSurveyCommand request, CancellationToken cancellationToken)
             {
                 var email = await _getUserInformation.GetUser();

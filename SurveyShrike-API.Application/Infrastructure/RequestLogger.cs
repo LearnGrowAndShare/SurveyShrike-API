@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 /// </summary>
 namespace SurveyShrike_API.Application.Infrastructure
 {
+    /// <summary>
+    /// Logs each request
+    /// </summary>
+    /// <typeparam name="TRequest">Type of the Http request.</typeparam>
     public class RequestLogger<TRequest> : IRequestPreProcessor<TRequest>
     {
         private readonly ILogger _logger;

@@ -10,8 +10,14 @@ using System.Text;
 /// </summary>
 namespace SurveyShrike_API.Application.Surveys.Commands.CreateSurveyResponse
 {
-  public class CreateSurveyCommandValidator : AbstractValidator<CreateSurveyCommand>
+    /// <summary>
+    /// CreateSurveyCommandValidator
+    /// </summary>
+    public class CreateSurveyCommandValidator : AbstractValidator<CreateSurveyCommand>
     {
+        /// <summary>
+        /// Construtor for CreateSurveyCommandValidator
+        /// </summary>
         public CreateSurveyCommandValidator()
         {
             RuleFor(x => x.FormFields).NotNull();

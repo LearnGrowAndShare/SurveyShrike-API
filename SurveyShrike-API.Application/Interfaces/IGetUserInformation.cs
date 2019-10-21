@@ -10,8 +10,15 @@ using System.Threading.Tasks;
 /// </summary>
 namespace SurveyShrike_API.Application.Interfaces
 {
+    /// <summary>
+    /// DI for get user information.
+    /// </summary>
     public interface IGetUserInformation
     {
+        /// <summary>
+        /// Get user to provide the logged in user email
+        /// </summary>
+        /// <returns>Email of the logged in user.</returns>
         Task<string> GetUser();
     }
 }

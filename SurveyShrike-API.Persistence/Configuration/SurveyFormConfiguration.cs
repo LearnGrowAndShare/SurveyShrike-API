@@ -12,6 +12,10 @@ using System.Text;
 /// </summary>
 namespace SurveyShrike_API.Persistence.Configuration
 {
+    /// <summary>
+    /// Database configuration for the Entity - Survey form fields
+    /// <seealso cref="SurveyShrike_API.Domain.Entities.SurveyFormField">
+    /// </summary>
     public class SurveyFormFieldsConfiguration : IEntityTypeConfiguration<SurveyFormField>
     {
         public void Configure(EntityTypeBuilder<SurveyFormField> builder)

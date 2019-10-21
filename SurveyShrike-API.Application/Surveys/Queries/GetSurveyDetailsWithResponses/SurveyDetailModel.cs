@@ -42,9 +42,9 @@ namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetailsWithRespo
             }
         }
 
-        public static SurveyDetailModel Create(Survey customer)
+        public static SurveyDetailModel Create(Survey survey)
         {
-            return Projection.Compile().Invoke(customer);
+            return Projection.Compile().Invoke(survey);
         }
     }
 }

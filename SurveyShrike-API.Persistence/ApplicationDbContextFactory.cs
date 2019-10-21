@@ -12,7 +12,10 @@ using System.Text;
 namespace SurveyShrike_API.Persistence
 {
     /// <summary>
-    /// 
+    /// Some of the EF Core Tools commands (for example, the Migrations commands) require a derived DbContext instance to be 
+    /// created at design time in order to gather details about the application's entity types and how they map to a database schema. 
+    /// In most cases, it is desirable that the DbContext thereby created is configured in a similar way to how it would be configured 
+    /// at run time.
     /// </summary>
     public class ApplicationDbContextFactory : DesignTimeDbContextFactoryBase<ApplicationDBContext>
     {

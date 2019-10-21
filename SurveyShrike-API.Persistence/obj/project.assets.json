@@ -2247,11 +2247,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\office_assignemnt\\SurveyShrike\\SurveyShrike-API\\SurveyShrike-API.Persistence\\SurveyShrike-API.Persistence.csproj",
+      "projectUniqueName": "E:\\office_assignemnt\\Final\\SurveyShrike-API\\SurveyShrike-API.Persistence\\SurveyShrike-API.Persistence.csproj",
       "projectName": "SurveyShrike-API.Persistence",
-      "projectPath": "E:\\office_assignemnt\\SurveyShrike\\SurveyShrike-API\\SurveyShrike-API.Persistence\\SurveyShrike-API.Persistence.csproj",
+      "projectPath": "E:\\office_assignemnt\\Final\\SurveyShrike-API\\SurveyShrike-API.Persistence\\SurveyShrike-API.Persistence.csproj",
       "packagesPath": "C:\\Users\\dreamweaver\\.nuget\\packages\\",
-      "outputPath": "E:\\office_assignemnt\\SurveyShrike\\SurveyShrike-API\\SurveyShrike-API.Persistence\\obj\\",
+      "outputPath": "E:\\office_assignemnt\\Final\\SurveyShrike-API\\SurveyShrike-API.Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -2272,8 +2272,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "E:\\office_assignemnt\\SurveyShrike\\SurveyShrike-API\\SurveyShrike-API.Application\\SurveyShrike-API.Application.csproj": {
-              "projectPath": "E:\\office_assignemnt\\SurveyShrike\\SurveyShrike-API\\SurveyShrike-API.Application\\SurveyShrike-API.Application.csproj"
+            "E:\\office_assignemnt\\Final\\SurveyShrike-API\\SurveyShrike-API.Application\\SurveyShrike-API.Application.csproj": {
+              "projectPath": "E:\\office_assignemnt\\Final\\SurveyShrike-API\\SurveyShrike-API.Application\\SurveyShrike-API.Application.csproj"
             }
           }
         }

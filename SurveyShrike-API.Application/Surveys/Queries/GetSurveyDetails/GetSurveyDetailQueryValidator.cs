@@ -10,9 +10,14 @@ using System.Text;
 /// </summary>
 namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetails
 {
-
+    /// <summary>
+    /// GetSurveyDetailQueryValidator validation for the ID
+    /// </summary>
     public class GetSurveyDetailQueryValidator : AbstractValidator<GetSurveyDetailQuery>
     {
+        /// <summary>
+        /// Constructor of GetSurveyDetailQueryValidator
+        /// </summary>
         public GetSurveyDetailQueryValidator()
         {
             RuleFor(v => v.Id).NotEmpty();
