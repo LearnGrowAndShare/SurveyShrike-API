@@ -9,6 +9,9 @@ using System.Text;
 /// </summary>
 namespace SurveyShrike_API.Application.Exceptions
 {
+    /// <summary>
+    /// The exception that is thrown when a null reference found for the provided Id/Key to look for the entity.
+    /// </summary>
     public class NotFoundException : Exception
     {
         public NotFoundException(string name, object key)

@@ -11,9 +11,12 @@ namespace SurveyShrike_API.Persistence.Infrastructure
     using System.IO;
 
     /// <summary>
-    /// 
+    /// Some of the EF Core Tools commands (for example, the Migrations commands) require a derived DbContext instance to be created at design time in order to gather details about the application's entity types and how they map to a database schema. In most cases, it is desirable that the DbContext thereby created is configured in a similar way to how it would be configured at run time.
     /// </summary>
-    /// <typeparam name="TContext"></typeparam>
+    /// <typeparam name="TContext">
+    /// <seealso cref="https://docs.microsoft.com/en-us/ef/core/miscellaneous/configuring-dbcontext"/>
+    /// You can also tell the tools how to create your DbContext by implementing the IDesignTimeDbContextFactory<TContext> interface: If a class implementing this interface is found in either the same project as the derived DbContext or in the application's startup project, the tools bypass the other ways of creating the DbContext and use the design-time factory instead.
+    /// </typeparam>
     public abstract class DesignTimeDbContextFactoryBase<TContext> :
         IDesignTimeDbContextFactory<TContext> where TContext : DbContext
     {
@@ -32,17 +35,17 @@ namespace SurveyShrike_API.Persistence.Infrastructure
         }
 
         /// <summary>
-        /// 
+        /// CreateNewInstance is an abstract method and provide a way to extend how the instance for the DB context should be prepared.
         /// </summary>
-        /// <param name="options"></param>
-        /// <returns></returns>
+        /// <param name="options">DbContext optios to be provided as an input to the operations.</param>
+        /// <returns>An instance of the Database context object.</returns>
         protected abstract TContext CreateNewInstance(DbContextOptions<TContext> options);
 
         /// <summary>
-        /// 
+        /// Create method provide an input connection string for the 
         /// </summary>
-        /// <param name="basePath"></param>
-        /// <param name="environmentName"></param>
+        /// <param name="basePath">Base path for the appsettings.json configuration file.</param>
+        /// <param name="environmentName">Asp.net Environment details for building the configuration. for example - ASP.NET_ENVIRONMENT is Development, it overrrides the value of appsettings.json with appsettings.developmnet.json.</param>
         /// <returns></returns>
         protected TContext Create(string basePath, string environmentName)
         {
@@ -60,9 +63,9 @@ namespace SurveyShrike_API.Persistence.Infrastructure
         }
 
         /// <summary>
-        /// 
+        /// Create method create a new Instance of the DBContext for migrations.
         /// </summary>
-        /// <param name="connectionString"></param>
+        /// <param name="connectionString">Database connection string.</param>
         /// <returns></returns>
         private TContext Create(string connectionString)
         {

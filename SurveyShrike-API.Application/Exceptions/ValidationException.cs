@@ -11,14 +11,24 @@ using System.Text;
 /// </summary>
 namespace SurveyShrike_API.Application.Exceptions
 {
+    /// <summary>
+    /// The exception that is thrown when the property/field of the class fails to fullfil FluentValidation definations.
+    /// </summary>
     public class ValidationException : Exception
     {
+        /// <summary>
+        /// Constructor of ValidationException
+        /// </summary>
         public ValidationException()
             : base("One or more validation failures have occurred.")
         {
             Failures = new Dictionary<string, string[]>();
         }
 
+        /// <summary>
+        /// Constructor of ValidationException
+        /// </summary>
+        /// <param name="failures">List of all the validation failures. <seealso cref="ValidationFailure"/></param>
         public ValidationException(List<ValidationFailure> failures)
             : this()
         {
@@ -37,6 +47,9 @@ namespace SurveyShrike_API.Application.Exceptions
             }
         }
 
+        /// <summary>
+        /// Dictionary with list of all the failure.
+        /// </summary>
         public IDictionary<string, string[]> Failures { get; }
     }
 }

@@ -10,11 +10,20 @@ using Microsoft.Extensions.Logging;
 /// </summary>
 namespace SurveyShrike_API.Application.Infrastructure
 {
+    /// <summary>
+    /// Logs the request and response of the object.
+    /// </summary>
+    /// <typeparam name="TRequest">Type of Request recieved.</typeparam>
+    /// <typeparam name="TResponse">Type of Response sent.</typeparam>
     public class RequestPerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly Stopwatch _timer;
         private readonly ILogger<TRequest> _logger;
 
+        /// <summary>
+        /// Constructor for RequestPerformanceBehaviour
+        /// </summary>
+        /// <param name="logger">Instance of logged to log.</param>
         public RequestPerformanceBehaviour(ILogger<TRequest> logger)
         {
             _timer = new Stopwatch();
@@ -22,6 +31,13 @@ namespace SurveyShrike_API.Application.Infrastructure
             _logger = logger;
         }
 
+        /// <summary>
+        /// Handle method perform the actual
+        /// </summary>
+        /// <param name="request">Request object</param>
+        /// <param name="cancellationToken">Cancellation token </param>
+        /// <param name="next">the next operation to perofrm</param>
+        /// <returns></returns>
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             _timer.Start();

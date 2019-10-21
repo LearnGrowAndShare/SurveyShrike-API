@@ -13,15 +13,31 @@ using System.Threading.Tasks;
 /// </summary>
 namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetails
 {
+    /// <summary>
+    /// GetSurveyDetailQueryHandler
+    /// </summary>
     public class GetSurveyDetailQueryHandler : IRequestHandler<GetSurveyDetailQuery, SurveyDetailModel>
     {
+        /// <summary>
+        /// application db context
+        /// </summary>
         private readonly IApplicationDBContext _context;
-      
+
+        /// <summary>
+        /// Constructor of GetSurveyDetailQueryHandler
+        /// </summary>
+        /// <param name="context">Application db context</param>
         public GetSurveyDetailQueryHandler(IApplicationDBContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// Handle the query
+        /// </summary>
+        /// <param name="request">request</param>
+        /// <param name="cancellationToken">cancellation token</param>
+        /// <returns>SurveyDetailModel </returns>
         public async Task<SurveyDetailModel> Handle(GetSurveyDetailQuery request, CancellationToken cancellationToken)
         {
          

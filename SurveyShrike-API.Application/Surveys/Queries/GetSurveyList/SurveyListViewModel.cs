@@ -9,8 +9,14 @@ using System.Text;
 /// </summary>
 namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyList
 {
+    /// <summary>
+    /// SurveyListViewModel
+    /// </summary>
     public class SurveyListViewModel
     {
+        /// <summary>
+        /// Final reposne of the query
+        /// </summary>
         public IList<SurveyLookupModel> Surveys { get; set; }
     }
 }

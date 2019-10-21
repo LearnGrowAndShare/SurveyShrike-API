@@ -6,7 +6,9 @@
 /// </summary>
 namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyList
 {
-
+    /// <summary>
+    /// Type of query to help mediator know which request to operate.
+    /// </summary>
     public class GetSurveyListQuery : IRequest<SurveyListViewModel>
     {
     }

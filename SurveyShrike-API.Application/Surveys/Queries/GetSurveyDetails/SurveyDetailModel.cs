@@ -13,13 +13,29 @@ using System.Text;
 /// </summary>
 namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetails
 {
- 
+ /// <summary>
+ /// Respose for the Survey Details model
+ /// </summary>
    public class SurveyDetailModel
     {
+        /// <summary>
+        /// Key for survey
+        /// </summary>
         public Guid Id { get; set; }
+
+        /// <summary>
+        /// Title of the survey
+        /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        /// Form field configuration
+        /// </summary>
         public ICollection<FormFields> Forms { get; set; }
 
+        /// <summary>
+        /// Projection to map
+        /// </summary>
         public static Expression<Func<Survey, SurveyDetailModel>> Projection
         {
             get
@@ -40,9 +56,14 @@ namespace SurveyShrike_API.Application.Surveys.Queries.GetSurveyDetails
             }
         }
 
-        public static SurveyDetailModel Create(Survey customer)
+        /// <summary>
+        /// create a suvey model
+        /// </summary>
+        /// <param name="survey">survey</param>
+        /// <returns>survey</returns>
+        public static SurveyDetailModel Create(Survey survey)
         {
-            return Projection.Compile().Invoke(customer);
+            return Projection.Compile().Invoke(survey);
         }
     }
 }
