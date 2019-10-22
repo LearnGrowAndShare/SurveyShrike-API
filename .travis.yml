@@ -11,6 +11,7 @@ script:
  - dotnet build
  - dotnet test 
  - dotnet publish  SurveyShrike-API/SurveyShrike-API.csproj -c Release -o Publish
- - docker build -t myimage -f Dockerfile .
+ - docker build -t docker.e-demo.xyz:5000/.netcore3exp -f Dockerfile .
+ - docker push docker.e-demo.xyz:5000/myImage
  
 
