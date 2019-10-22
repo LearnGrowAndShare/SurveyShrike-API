@@ -10,7 +10,7 @@ script:
  - dotnet restore
  - dotnet build
  - dotnet test 
- - dotnet publish -c Release
+ - dotnet publish  SurveyShrike-API/SurveyShrike-API.csproj -c Release -o Publish
  - docker build -t myimage -f Dockerfile .
  
 
