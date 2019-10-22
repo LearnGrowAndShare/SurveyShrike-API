@@ -1,10 +1,19 @@
+sudo: required
 language: csharp
+
 mono: none
 solution: SurveyShrike-API.sln
 dotnet: 3.0.100
 
+before_install:
+    # add 172.16.0.0/12 as insecure registry (OpenShift internal registry)
+    - sudo sed -i "s/\DOCKER_OPTS=\"/DOCKER_OPTS=\"--insecure-registry=docker.e-demo.xyz:5000 /g" /etc/default/docker
+    - sudo cat /etc/default/docker
+    - sudo service docker restart
+    
 service:
  - docker
+
 
 script:
  - dotnet restore
@@ -13,5 +22,3 @@ script:
  - dotnet publish  SurveyShrike-API/SurveyShrike-API.csproj -c Release -o Publish
  - docker build -t docker.e-demo.xyz:5000/netcore3exp -f Dockerfile .
  - docker push docker.e-demo.xyz:5000/netcore3exp
- 
-
