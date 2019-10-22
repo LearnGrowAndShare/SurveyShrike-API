@@ -3,7 +3,7 @@ mono: none
 solution: SurveyShrike-API.sln
 dotnet: 3.0.100
 
-service
+service:
  - docker
 
 script:
